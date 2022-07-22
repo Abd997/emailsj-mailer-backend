@@ -33,6 +33,12 @@ app.post("/user/send/mail", async (req, res) => {
 	}
 });
 
+app.use("*", async (req, res) => {
+	res.send(
+		"<h1>Send a json POST request at /user/send/mail with name and email</h1>"
+	);
+});
+
 // export default app;
 
 module.exports = app;
