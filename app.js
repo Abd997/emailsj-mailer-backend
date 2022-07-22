@@ -9,12 +9,12 @@ const emailjs = require("@emailjs/browser");
 
 app.use(express.json());
 
-app.post("/user/send/mail", async (req, res) => {
+app.get("/user/send/mail/:name/:email", async (req, res) => {
 	try {
 		await emailjs.init(process.env.KEY);
 		var templateParams = {
-			name: req.body.name,
-			to_email: req.body.email
+			name: req.params.name,
+			to_email: req.params.email
 		};
 
 		await emailjs.send(
